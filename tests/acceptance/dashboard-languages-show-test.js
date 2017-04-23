@@ -3,10 +3,10 @@ import moduleForAcceptance from 'blog-dashboard/tests/helpers/module-for-accepta
 
 moduleForAcceptance('Acceptance | dashboard languages show',{
   beforeEach(){
-    let language = server.create('lanugage', {name:"Ruby"});
+    let language = server.create('language', {name:"Ruby"});
     server.create('framework', {name: "Ruby on Rails", language_id: language.id});
     server.create('post', {title: "Ruby Installation", language_id: language.id});
-    visit(`/dashboard/languages/${language.id}/show`);
+    visit(`/dashboard/languages/${language.id}`);
   }
 });
 

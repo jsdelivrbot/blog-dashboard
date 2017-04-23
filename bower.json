@@ -1,5 +1,6 @@
 {
   "name": "blog-dashboard",
   "dependencies": {
+    "active-model-adapter": "^2.1.1"
   }
 }

@@ -1,4 +1,5 @@
 export default function() {
+  this.namespace = '/api';
 
   // These comments are here to help you get started. Feel free to delete them.
 
@@ -23,4 +24,13 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
+    this.get('/posts/:id');
+    this.post('/posts');
+    this.get('/posts');
+    this.get('/languages/:id');
+    this.post('/languages');
+    this.get('/languages'); 
+    this.get('/frameworks/:id');
+    this.post('/frameworks');
+    this.get('/frameworks');  
 }

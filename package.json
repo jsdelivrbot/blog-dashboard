@@ -15,6 +15,7 @@
     "test": "ember test"
   },
   "devDependencies": {
+    "active-model-adapter": "^2.1.1",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
     "ember-cli": "2.12.2",
@@ -27,6 +28,7 @@
     "ember-cli-inject-live-reload": "^1.4.1",
     "ember-cli-mirage": "^0.3.1",
     "ember-cli-qunit": "^3.1.0",
+    "ember-cli-sass": "^6.1.2",
     "ember-cli-shims": "^1.0.2",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
@@ -41,5 +43,8 @@
   "engines": {
     "node": ">= 4"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "ember-cli-sass": "^6.1.2"
+  }
 }

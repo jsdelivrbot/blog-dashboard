@@ -3,7 +3,7 @@ import moduleForAcceptance from 'blog-dashboard/tests/helpers/module-for-accepta
 
 moduleForAcceptance('Acceptance | dashboard languages', {
   beforeEach(){
-    server.createList('lanugage', 3);
+    server.createList('language', 3);
     visit('/dashboard/languages');
   }
 });
@@ -11,32 +11,32 @@ moduleForAcceptance('Acceptance | dashboard languages', {
 test('visiting /dashboard/languages', function(assert) {
   andThen(function() {
     assert.equal(currentURL(), '/dashboard/languages');
-    assert.equal(currentRouteName(), 'dashboard.languages', 'dashboard lanugages route');
+    assert.equal(currentRouteName(), 'dashboard.languages', 'dashboard languages route');
   });
 });
 
 test('showing created languages', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .card').length, 3, 'lanugages are shown on page');
+     assert.equal(find('.container > .card').length, 3, 'languages are shown on page');
   });
 });
 
 test('language button', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .add-button .large').length, 1, 'add button is present on page');
+     assert.equal(find('.container > .add-button').length, 1, 'add button is present on page');
   });
 });
 
 test('show language on click', function(assert) {
   click('.card');
   andThen(function(){
-    assert.equal(currentRouteName(), 'dashboard.lanugages.show', 'show lanugage route');
+    assert.equal(currentRouteName(), 'dashboard.languages.show', 'show language route');
   });
 });
 
 test('add language on click', function(assert) {
-  click('.add-button .large');
+  click('.add-button');
   andThen(function(){
-    assert.equal(currentRouteName(), 'dashboard.lanugages.new', 'new lanugage route');
+    assert.equal(currentRouteName(), 'dashboard.languages.new', 'new language route');
   });
 });
