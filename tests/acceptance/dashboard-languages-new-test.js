@@ -36,12 +36,14 @@ test('placeholders for new language', function(assert) {
 test('save button', function(assert) {
   andThen(function() {
      assert.equal(find('.container > .primary-button').length, 1, 'add save button is present on page');
+    assert.equal(find('.container > .card').length, 1, 'language is shown on page');
   });
 });
 
 test('cancel button', function(assert) {
   andThen(function() {
      assert.equal(find('.container > .secondary-button').length, 1, 'add cancel button is present on page');
+    assert.equal(find('.container > .card').length, 0, 'languages are not created on page');
   });
 });
 

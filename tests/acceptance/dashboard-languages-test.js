@@ -23,7 +23,7 @@ test('showing created languages', function(assert) {
 
 test('language button', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .add-button').length, 1, 'add button is present on page');
+     assert.equal(find('.container > .primary-button').length, 1, 'add button is present on page');
   });
 });
 
@@ -35,7 +35,7 @@ test('show language on click', function(assert) {
 });
 
 test('add language on click', function(assert) {
-  click('.add-button');
+  click('.primary-button');
   andThen(function(){
     assert.equal(currentRouteName(), 'dashboard.languages.new', 'new language route');
   });

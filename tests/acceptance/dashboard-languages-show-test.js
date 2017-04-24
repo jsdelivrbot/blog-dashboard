@@ -30,13 +30,13 @@ test('showing created post', function(assert) {
 
 test('framework button', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .add-button .large').length, 1, 'add framework button is present on page');
+     assert.equal(find('.container > .primary-button .large').length, 1, 'add framework button is present on page');
   });
 });
 
 test('post button', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .add-button .long').length, 1, 'add oost button is present on page');
+     assert.equal(find('.container > .primary-button .long').length, 1, 'add oost button is present on page');
   });
 });
 
@@ -55,14 +55,14 @@ test('show post on click', function(assert) {
 });
 
 test('add framework on click', function(assert) {
-  click('.add-button .large');
+  click('.primary-button .large');
   andThen(function(){
     assert.equal(currentRouteName(), 'dashboard.frameworks.new', 'new framework route');
   });
 });
 
 test('add post on click', function(assert) {
-  click('.add-button .large');
+  click('.primary-button .large');
   andThen(function(){
     assert.equal(currentRouteName(), 'dashboard.posts.new', 'new post route');
   });

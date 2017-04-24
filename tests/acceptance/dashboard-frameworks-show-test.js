@@ -25,7 +25,7 @@ test('showing created post', function(assert) {
 
 test('post button', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > add-button long').length, 1, 'add post button is present on page');
+     assert.equal(find('.container > primary-button long').length, 1, 'add post button is present on page');
   });
 });
 

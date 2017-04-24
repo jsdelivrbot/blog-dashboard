@@ -121,27 +121,54 @@ nav {
     padding: 15px;
     font-size: 24px;
   }
-  .add-button{
-    width: 33.3333333333333333333%;
-    height: 160px;
+  .btn{
+    border:none;
     -webkit-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
     -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
     box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
     display: inline-block;
-    background-color: white;
     color: #c98474;
     display: flex;
     align-items:center;
-    font-size: 40px;
     text-decoration: none;
     cursor: pointer;
-    background-color: #f2d388;
-    color: white;
     justify-content:center;
     span{
       line-height: 0.7;
       font-size: 60px;
       margin-bottom: 15px;
+    }
+  }
+  .primary-button{
+    background-color: #f2d388;
+    color: white;
+    &:hover {
+      background-color:#D9BA6F;
+    }
+    &:active {
+       fill:#1a82b8;
+       background-color:#D9BA6F;
+    }
+  }
+  .large{
+    width: 33.3333333333333333333%;
+    height: 160px;
+    font-size: 40px;
+  }
+  .small{
+    width: 16%;
+    height: 35px;
+    font-size: 20px;
+  }
+  .secondary-button{
+    background-color: #874c62;
+    color: white;
+    &:hover {
+      background-color:#6E3349;
+    }
+    &:active {
+       fill:#6E3349;
+       background-color:#6E3349;
     }
   }
   h2{
@@ -155,4 +182,41 @@ nav {
     font-size: 14px;
     color: #c98474;
   }  
+  input {
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    width: 100%;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #a7d2cb;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    padding: 10px;
+    font-size: 20px;
+    color:#874c62;
+    :active,
+    :focus {
+     -webkit-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);     
+    }  
+  }
+  .medium{
+    width: 49%;
+  }
+  .form-group{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+  }
+  .btn-group{
+    margin-top: 1%;
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+  }
+  .m-r{
+    margin-right:2%;
+  }
 }

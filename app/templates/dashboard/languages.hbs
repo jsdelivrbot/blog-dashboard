@@ -15,10 +15,10 @@
 <div class="container">
   {{#each model as |language|}}
   {{#link-to "dashboard.languages.show" language.id class="card"}}
-    Ruby
+    {{language.name}}
   {{/link-to}}
   {{/each}}
-  {{#link-to "dashboard.languages.new" class="add-button large"}}
+  {{#link-to "dashboard.languages.new" class="primary-button btn large"}}
     <span>+</span>
   {{/link-to}}
 {{!--     <div class="code-card">How to save nested objects in ember js sow to save nested objects in ember js ember js sow to save nested objects in ember js.</div>
