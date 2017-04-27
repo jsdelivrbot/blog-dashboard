@@ -23,6 +23,9 @@ export default Ember.Route.extend({
         post: post
       });
     },
+    lol(wtf){
+      console.log(wtf);
+    },
     resetController(controller, isExiting){
       if(isExiting){
         controller.set("language_id", undefined);
