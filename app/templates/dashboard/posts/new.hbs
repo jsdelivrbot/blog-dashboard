@@ -1,0 +1,47 @@
+<nav>
+  <h2>Code Guide</h2>
+  <div>
+    <img src="/assets/images/avatar.jpg"/>
+    <div class='arrow'>
+    </div>
+    <div class='nav-list hide'>
+      <ul>
+        <li><a href="#">Settings</a></li>
+        <li ><a href="#">Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <form {{action 'save' model on='submit'}}>
+    {{input type="text" value=model.title placeholder="Post Name"}}
+    {{input type="text" value=model.displayOrder  placeholder="Post Display Order"}}
+    {{#each model.blocks as |block|}}
+    {{#if  block.textarea}}
+      {{textarea value=block.content placeholder=block.status class=block.status cols="80" rows="6"}}
+    {{else}}
+      {{input type="text" class=block.status value=block.content placeholder=block.status}}
+    {{/if}}
+    {{/each}}
+    {{#if model.id}}
+    <div class="btn-large-group">
+      {{#each blocks as |block|}}
+        <button class="primary-button btn small" {{action "addBlock" block model}}>{{block}}</button>
+      {{/each}}
+    </div>
+    {{/if}}
+    <div class="btn-group m-t">
+      <button type="submit" class="primary-button btn small m-r">Save</button>
+      {{#if model.language}}
+        {{#link-to 'dashboard.languages.show' model.language.id class="secondary-button btn small" tagName="button"}}
+          Cancel
+       {{/link-to}}
+      {{/if}}
+      {{#if model.framework}}
+        {{#link-to 'dashboard.frameworks.show' model.framework.id class="secondary-button btn small" tagName="button"}}
+          Cancel
+       {{/link-to}}
+      {{/if}}
+    </div>
+  </form>
+</div>

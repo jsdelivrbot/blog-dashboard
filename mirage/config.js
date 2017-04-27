@@ -12,8 +12,9 @@ export default function() {
     this.post('/frameworks', function(db, request) {
       let language= db.languages.find(this.normalizedRequestAttrs().languageId);
       let framework= db.frameworks.create(this.normalizedRequestAttrs());      
-            console.log(language.framework_ids.push(framework.id));
-
+      if(language.framework_ids){
+        language.framework_ids.push(framework.id);  
+      }
       return framework;
     });
 }

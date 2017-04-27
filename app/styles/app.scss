@@ -223,12 +223,26 @@ nav {
     justify-content:space-between;
   }
   .btn-group{
-    margin-top: 1%;
     display: flex;
     width: 100%;
     justify-content:flex-end;
   }
+  .btn-large-group{
+    margin-top: 1%;
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+  }
   .m-r{
     margin-right:2%;
+  }
+  .m-t{
+    margin-top:2%;
+  }
+  textarea{
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
+    box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);    
   }
 }
