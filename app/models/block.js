@@ -5,7 +5,10 @@ export default DS.Model.extend({
   status:DS.attr("string"),
   displayOrder: DS.attr("number"),
   post: DS.belongsTo("post"),
-  textarea: Ember.computed("status", function(){
-    return this.get("status")=="code" || this.get("status")=="paragraf"
+  paragraf: Ember.computed("status", function(){
+    return this.get("status")=="paragraf"
+  }),
+  code: Ember.computed("status", function(){
+    return this.get("status")=="code"
   })
 });

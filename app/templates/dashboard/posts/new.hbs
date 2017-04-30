@@ -17,8 +17,10 @@
     {{input type="text" value=model.title placeholder="Post Name"}}
     {{input type="text" value=model.displayOrder  placeholder="Post Display Order"}}
     {{#each model.blocks as |block|}}
-    {{#if  block.textarea}}
-      {{textarea value=block.content placeholder=block.status class=block.status cols="80" rows="6"}}
+    {{#if block.paragraf}}
+      {{tinymce-editor options=(hash  statusbar= false menu="false" plugins="link paste" paste_as_text=true toolbar='undo redo |  bold italic  | bullist numlist | link image') value=block.content onValueChanged=(action "addText")}}
+    {{else if block.code}}
+      {{tinymce-editor options=(hash statusbar= false forced_root_block="pre" plugins="paste" paste_as_text=true  toolbar="false" menu="false") value=block.content onValueChanged=(action "addText")}}
     {{else}}
       {{input type="text" class=block.status value=block.content placeholder=block.status}}
     {{/if}}
