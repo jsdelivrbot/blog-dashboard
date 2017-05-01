@@ -15,10 +15,9 @@
 <div class="container">
   <form {{action 'save' model on='submit'}}>
     {{input type="text" value=model.title placeholder="Post Name"}}
-    {{input type="text" value=model.displayOrder  placeholder="Post Display Order"}}
     {{#each model.blocks as |block|}}
     {{#if block.paragraf}}
-      {{tinymce-editor options=(hash  statusbar= false menu="false" plugins="link paste" paste_as_text=true toolbar='undo redo |  bold italic  | bullist numlist | link image') value=block.content onValueChanged=(action "addText")}}
+      {{tinymce-editor options=(hash formats=(hash p=(hash  classes= 'lol')) statusbar= false menu="false" plugins="link paste" paste_as_text=true toolbar='undo redo |  bold italic  | bullist numlist | link image') value=block.content class="paragraf" onValueChanged=(action "addText")}}
     {{else if block.code}}
       {{tinymce-editor options=(hash statusbar= false forced_root_block="pre" plugins="paste" paste_as_text=true  toolbar="false" menu="false") value=block.content onValueChanged=(action "addText")}}
     {{else}}
