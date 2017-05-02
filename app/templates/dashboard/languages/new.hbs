@@ -15,10 +15,7 @@
 <div class="container">
   <form {{action 'save' model on='submit'}}>
     {{input type="text" value=model.name placeholder="Language Name"}}
-    <div class="form-group">
-      {{input type="text" value=model.displayOrder class="medium" placeholder="Language Theme"}}
-      {{input type="text" value=model.theme class="medium" placeholder="Language Display Order"}}
-    </div>
+    {{input type="text" value=model.displayOrder  placeholder="Language Theme"}}
     <div class="btn-group">
       <button type="submit" class="primary-button btn small m-r">Save</button>
       {{#link-to "dashboard.languages" class="secondary-button btn small" tagName="button"}}

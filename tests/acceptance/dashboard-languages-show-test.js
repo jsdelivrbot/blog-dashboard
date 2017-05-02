@@ -3,9 +3,9 @@ import moduleForAcceptance from 'blog-dashboard/tests/helpers/module-for-accepta
 
 moduleForAcceptance('Acceptance | dashboard languages show',{
   beforeEach(){
-    let language = server.create('language', {name:"Ruby"});
-    server.create('framework', {name: "Ruby on Rails", language_id: language.id});
-    server.create('post', {title: "Ruby Installation", language_id: language.id});
+    let language = server.create('language', {name:"Ruby", framework_ids:[1], post_ids:[1]});
+    server.create('framework', {name: "Ruby on Rails", language: language});
+    server.create('post', {title: "Ruby Installation", language: language});
     visit(`/dashboard/languages/${language.id}`);
   }
 });
@@ -24,19 +24,7 @@ test('showing created framework', function(assert) {
 
 test('showing created post', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .card long').length, 1, 'post is shown on page');
-  });
-});
-
-test('framework button', function(assert) {
-  andThen(function() {
-     assert.equal(find('.container > .primary-button .large').length, 1, 'add framework button is present on page');
-  });
-});
-
-test('post button', function(assert) {
-  andThen(function() {
-     assert.equal(find('.container > .primary-button .long').length, 1, 'add oost button is present on page');
+     assert.equal(find('.container > .block').length, 1, 'post is shown on page');
   });
 });
 
@@ -48,21 +36,21 @@ test('show framework on click', function(assert) {
 });
 
 test('show post on click', function(assert) {
-  click('.card');
+  click('.block');
   andThen(function(){
-    assert.equal(currentRouteName(), 'dashboard.posts.show', 'show post route');
+    assert.equal(currentRouteName(), 'dashboard.posts.new', 'show post route');
   });
 });
 
-test('add framework on click', function(assert) {
-  click('.primary-button .large');
+test('go to add a framework on click', function(assert) {
+  click('.primary-button.large');
   andThen(function(){
     assert.equal(currentRouteName(), 'dashboard.frameworks.new', 'new framework route');
   });
 });
 
-test('add post on click', function(assert) {
-  click('.primary-button .large');
+test('go to add a post on click', function(assert) {
+  click('.primary-button.long');
   andThen(function(){
     assert.equal(currentRouteName(), 'dashboard.posts.new', 'new post route');
   });

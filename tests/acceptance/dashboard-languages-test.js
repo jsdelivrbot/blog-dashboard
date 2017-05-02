@@ -4,6 +4,7 @@ import moduleForAcceptance from 'blog-dashboard/tests/helpers/module-for-accepta
 moduleForAcceptance('Acceptance | dashboard languages', {
   beforeEach(){
     server.createList('language', 3);
+    server.create('language', {name:"Java", displayOrder:10});
     visit('/dashboard/languages');
   }
 });
@@ -17,18 +18,13 @@ test('visiting /dashboard/languages', function(assert) {
 
 test('showing created languages', function(assert) {
   andThen(function() {
-     assert.equal(find('.container > .card').length, 3, 'languages are shown on page');
+     assert.equal(find('.container > .card').length, 4, 'languages are shown on page');
   });
 });
 
-test('language button', function(assert) {
-  andThen(function() {
-     assert.equal(find('.container > .primary-button').length, 1, 'add button is present on page');
-  });
-});
 
 test('show language on click', function(assert) {
-  click('.card');
+  click(find('.card').last());
   andThen(function(){
     assert.equal(currentRouteName(), 'dashboard.languages.show', 'show language route');
   });
