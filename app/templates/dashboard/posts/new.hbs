@@ -16,54 +16,51 @@
   <form {{action 'save' model on='submit'}}>
     {{#if model.edit}}
       <h1>{{model.title}}</h1>
-      <div class="btn-group   m-t">
-        <button {{action 'editToggle' model}} class="primary-button btn small">Edit</button>
+      <div class="btn-group ">
+        <button {{action 'editInput' model}} class="primary-button btn small m-r">Edit</button>
+        <button {{action 'destroyPost' model}} class="secondary-button btn small" tagName="button">Delete</button>
       </div>
     {{else}}
       {{input type="text" value=model.title placeholder="Post Name"}}
-      <div class="btn-group m-t">
+      <div class="btn-group ">
         <button type="submit" class="primary-button btn small m-r">Save</button>
-        {{#if model.language}}
-          {{#link-to 'dashboard.languages.show' model.language.id class="secondary-button btn small" tagName="button"}}
-            Cancel
-         {{/link-to}}
-        {{/if}}
-        {{#if model.framework}}
-          {{#link-to 'dashboard.frameworks.show' model.framework.id class="secondary-button btn small" tagName="button"}}
-            Cancel
-         {{/link-to}}
+        {{#if model.id}}
+          <button {{action 'cancelInput' model}} class="secondary-button btn small" tagName="button">Cancel</button>          
+        {{else}}
+          <button {{action 'destroyPost' model}} class="secondary-button btn small" tagName="button">Cancel</button>
         {{/if}}
       </div>
     {{/if}}
     {{#each model.blocks as |block|}}
       {{#if block.edit}}
         {{block.contentHtmlSafe}}
-      <div class="btn-group   m-t">
-        <button {{action 'editToggle' block}} class="primary-button btn small">Edit</button>
+      <div class="btn-group  ">
+        <button {{action 'editInput' block}} class="primary-button btn small m-r">Edit</button>
+        <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Delete</button>
       </div>
       {{else if block.block}}
         {{tinymce-editor options=options1 value=block.content onValueChanged=(action "addText" block)}}
-        <div class="btn-group m-t">
+        <div class="btn-group">
           <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
-          <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Cancel</button>
+          <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
         </div>
       {{else if block.code}}
         {{tinymce-editor options=options2 value=block.content onValueChanged=(action "addText" block)}}
-        <div class="btn-group   m-t">
+        <div class="btn-group   ">
           <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
-          <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Cancel</button>
+          <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
         </div>
       {{else if block.hint}}
         {{tinymce-editor options=options3 value=block.content onValueChanged=(action "addText" block)}}
-        <div class="btn-group   m-t">
+        <div class="btn-group   ">
           <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
-          <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Cancel</button>
+          <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
         </div>
       {{else if block.header}}
-        {{tinymce-editor options=options4 value=block.content onValueChanged=(action "addText" block)}}
-        <div class="btn-group   m-t">
+        {{input type="text" value=block.content placeholder="Post Header"}}
+        <div class="btn-group   ">
           <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
-          <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Cancel</button>
+          <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
         </div>    
       {{/if}}
     {{/each}}

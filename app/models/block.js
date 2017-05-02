@@ -23,6 +23,8 @@ export default DS.Model.extend({
       return Ember.String.htmlSafe(`<div class="hint">${this.get("content")}</div>`);
     }else if(this.get("status")=="block"){
       return Ember.String.htmlSafe(`<div class="block-status">${this.get("content")}</div>`);      
+    }else if(this.get("status")=="header"){
+      return Ember.String.htmlSafe(`<h2>${this.get("content")}</h2>`);
     }
     else{
       return Ember.String.htmlSafe(this.get("content"));

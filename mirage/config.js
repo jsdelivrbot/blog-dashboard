@@ -10,7 +10,7 @@ export default function() {
     this.post('/frameworks');
     this.get('/frameworks');
     this.put("frameworks/:id");  
-    this.post('/frameworks', function(db, request) {
+    this.post('/frameworks', function(db) {
       let language= db.languages.find(this.normalizedRequestAttrs().languageId);
       let framework= db.frameworks.create(this.normalizedRequestAttrs());      
       if(language.framework_ids){
@@ -18,9 +18,12 @@ export default function() {
       }
       return framework;
     });
+    this.del('/posts/:id');
+    this.del('/blocks/:id');
+    this.put("posts/:id");
     this.put("blocks/:id");
     this.get('/blocks/:id');
-    this.post('/blocks', function(db, request) {
+    this.post('/blocks', function(db) {
       let post= db.posts.find(this.normalizedRequestAttrs().postId);
       let block= db.blocks.create(this.normalizedRequestAttrs());      
       if(post.block_ids){
