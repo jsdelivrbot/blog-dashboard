@@ -27,7 +27,7 @@ export default function() {
 
       if ( attrs.name!=null) {
           let framework= db.frameworks.create(attrs); 
-          if(language.framework_ids){
+          if(language && language.framework_ids){
             language.framework_ids.push(framework.id);  
           }
         return framework;

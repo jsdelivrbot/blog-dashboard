@@ -2,9 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params){
-    return this.store.createRecord('framework',{
-      language: this.store.findRecord("language", params.language_id)
-    });
+    if(params.language_id){
+      return this.store.findRecord("language", params.language_id).then((language)=>{
+        return this.store.createRecord('framework',{
+          language: language
+        })
+      });
+    }
   },
   actions: {
     save(model){

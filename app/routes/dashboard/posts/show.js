@@ -7,5 +7,13 @@ export default Ember.Route.extend({
   setupController(controller, model){
     controller.set("model", model);
     model.set("edit", true);
+  },
+  actions:{
+    willTransition() {
+      let post = this.get('controller.model');
+      let parentRoute=  post.get("parentRoute");
+      let parentId= post.get("parentId");
+      this.transitionTo(parentRoute, parentId);
+    } 
   }
 });
