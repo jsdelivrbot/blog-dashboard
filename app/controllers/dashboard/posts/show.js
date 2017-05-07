@@ -12,8 +12,9 @@ export default Ember.Controller.extend({
       });
     },
     save(model){
-      model.set("edit", true);
-      model.save();
+      model.save().then(()=>{
+        model.set("edit", true);
+      });
     },
     destroyPost(model){
       let parentRoute=  model.get("parentRoute");

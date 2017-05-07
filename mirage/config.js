@@ -67,14 +67,45 @@ export default function() {
           });
        }
       });
+    this.put('posts/:id', function(db, request) {
+      let attrs = JSON.parse(request.requestBody).post;
+      if ( attrs.title!=null && attrs.title!="") {
+          let post= db.posts.find(request.params.id).update(attrs); 
+          return post;
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+                "source": { "pointer": "/data/attributes/title"},
+                "detail": "Please enter a title"
+              }
+            ]
+          });
+       }
+      });
+    this.put('blocks/:id', function(db, request) {
+      let attrs = JSON.parse(request.requestBody).block;
+      if ( attrs.content!=null && attrs.content!="") {
+          let block= db.blocks.find(request.params.id).update(attrs); 
+          return block;
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+                "source": { "pointer": "/data/attributes/title"},
+                "detail": "Please enter a title"
+              }
+            ]
+          });
+       }
+      });
+
     this.get('/languages'); 
     this.get('/frameworks/:id');
     this.get('/frameworks');
     this.put("frameworks/:id");  
     this.del('/posts/:id');
     this.del('/blocks/:id');
-    this.put("posts/:id");
-    this.put("blocks/:id");
     this.get('/blocks/:id');
     this.post('/blocks', function(db) {
       let post= db.posts.find(this.normalizedRequestAttrs().postId);
