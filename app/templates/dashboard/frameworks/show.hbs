@@ -14,11 +14,11 @@
 </nav>
 <div class="container">
  {{#each model.posts as |post|}}
-    {{#link-to "dashboard.posts.new" (query-params post_id= post.id) class="block"}}
+    {{#link-to "dashboard.posts.show" post.id class="block"}}
       {{post.title}}
     {{/link-to}}
   {{/each}}
-  {{#link-to "dashboard.posts.new" (query-params post_id=null language_id=null framework_id=model.id) class="primary-button btn long"}} 
+  {{#link-to "dashboard.posts.new" (query-params language_id=null framework_id=model.id) class="primary-button btn long"}} 
     <span>+</span>
   {{/link-to}}
 </div>

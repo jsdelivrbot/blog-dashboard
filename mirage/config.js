@@ -1,23 +1,76 @@
+import Response from 'ember-cli-mirage/response';
+
 export default function() {
   this.namespace = '/api';
     this.get('/posts/:id');
     this.post('/posts');
     this.get('/posts');
     this.get('/languages/:id');
-    this.post('/languages');
+    this.post('languages', function(schema, request) {
+       let attrs = JSON.parse(request.requestBody).language;
+       if ( attrs.name!=null) {
+         return schema.languages.create(attrs); 
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+                "source": { "pointer": "/data/attributes/name"},
+                "detail": "Please enter a name"
+              }
+            ]
+          });
+       }
+      });
+    this.post('frameworks', function(db, request) {
+      let attrs = JSON.parse(request.requestBody).framework;
+      let language= db.languages.find(attrs.language_id);
+
+      if ( attrs.name!=null) {
+          let framework= db.frameworks.create(attrs); 
+          if(language.framework_ids){
+            language.framework_ids.push(framework.id);  
+          }
+        return framework;
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+                "source": { "pointer": "/data/attributes/name"},
+                "detail": "Please enter a name"
+              }
+            ]
+          });
+       }
+      });
+    this.post('posts', function(db, request) {
+      let attrs = JSON.parse(request.requestBody).post;
+      let language= db.languages.find(attrs.language_id || 0);
+      let framework= db.frameworks.find(attrs.framework_id || 0);
+
+      if ( attrs.title!=null && attrs.title!="") {
+          let post= db.posts.create(attrs); 
+          if(language && language.post_ids){
+            language.post_ids.push(post.id);  
+          }
+          if(framework && framework.post_ids){
+            framework.post_ids.push(post.id);  
+          }
+        return post;
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+                "source": { "pointer": "/data/attributes/title"},
+                "detail": "Please enter a title"
+              }
+            ]
+          });
+       }
+      });
     this.get('/languages'); 
     this.get('/frameworks/:id');
-    this.post('/frameworks');
     this.get('/frameworks');
     this.put("frameworks/:id");  
-    this.post('/frameworks', function(db) {
-      let language= db.languages.find(this.normalizedRequestAttrs().languageId);
-      let framework= db.frameworks.create(this.normalizedRequestAttrs());      
-      if(language.framework_ids){
-        language.framework_ids.push(framework.id);  
-      }
-      return framework;
-    });
     this.del('/posts/:id');
     this.del('/blocks/:id');
     this.put("posts/:id");
@@ -25,11 +78,22 @@ export default function() {
     this.get('/blocks/:id');
     this.post('/blocks', function(db) {
       let post= db.posts.find(this.normalizedRequestAttrs().postId);
-      let block= db.blocks.create(this.normalizedRequestAttrs());      
-      if(post.block_ids){
-        post.block_ids.push(block.id);  
+      if(this.normalizedRequestAttrs().content!=null && this.normalizedRequestAttrs().content!=""){
+        let block= db.blocks.create(this.normalizedRequestAttrs());      
+        if(post.block_ids){
+          post.block_ids.push(block.id);  
+        }
+        return block;
+      }else{
+        return new Response(422, {}, {
+            "errors": [
+              {
+                "source": { "pointer": "/data/attributes/content"},
+                "detail": "Please enter a content"
+              }
+            ]
+          });
       }
-      return block;
     });
     this.get('/blocks');  
 }

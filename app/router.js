@@ -14,7 +14,6 @@ Router.map(function() {
   this.route('dashboard.frameworks.show', {path:'dashboard/frameworks/:framework_id'});
   this.route('dashboard.posts.show', {path:'dashboard/posts/:post_id'});
   this.route('dashboard.posts.new', {path:'dashboard/posts/new'});
-
 });
 
 export default Router;

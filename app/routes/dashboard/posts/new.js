@@ -2,12 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model(params){
-    if(params.post_id){
-      return this.store.peekRecord("post", params.post_id);
-    }else{
-      return this.store.createRecord('post',{
-        framework: this.store.peekRecord("framework", params.framework_id),
-        language: this.store.peekRecord("language", params.language_id)
+    if(params.framework_id){
+      return this.store.findRecord("framework", params.framework_id).then((framework)=>{
+        return this.store.createRecord('post',{
+          framework: framework
+        })
+      });
+    }
+    if(params.language_id){
+      return this.store.findRecord("language", params.language_id).then((language)=>{
+        return this.store.createRecord('post',{
+          language: language
+        })
       });
     }
   },
@@ -16,7 +22,6 @@ export default Ember.Route.extend({
       if(isExiting){
         controller.set("language_id", undefined);
         controller.set("framework_id", undefined);
-        controller.set("post_id", undefined);
       }
     },
     willTransition() {
