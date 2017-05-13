@@ -100,7 +100,13 @@ export default function() {
        }
       });
 
-    this.get('/languages'); 
+    this.get('/languages', function(schema, request) {
+      if(request.requestHeaders){
+        return {"languages": schema.db.languages};
+      }else{
+        return new Response(401, {}, {});
+      }
+    }); 
     this.get('/frameworks/:id');
     this.get('/frameworks');
     this.put("frameworks/:id");  
@@ -126,5 +132,13 @@ export default function() {
           });
       }
     });
-    this.get('/blocks');  
+    this.get('/blocks');
+  this.post('/sessions', function(db, request) {
+    if(true) {
+      return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29"};
+    } else {
+      let body = { errors: [{ password: 'Invalid' }, {email: 'Invalid or not found'}] };
+      return new Mirage.Response(401,{}, body);
+    }
+  });  
 }
