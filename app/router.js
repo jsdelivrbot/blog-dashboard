@@ -7,13 +7,18 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('dashboard.languages', {path:'dashboard/languages'});
-  this.route('dashboard.languages.show', {path:'dashboard/languages/:language_id'});
-  this.route('dashboard.languages.new', {path:'dashboard/languages/new'});
-  this.route('dashboard.frameworks.new', {path:'dashboard/frameworks/:language_id/new'});
-  this.route('dashboard.frameworks.show', {path:'dashboard/frameworks/:framework_id'});
-  this.route('dashboard.posts.show', {path:'dashboard/posts/:post_id'});
-  this.route('dashboard.posts.new', {path:'dashboard/posts/new'});
+  this.route('dashboard', {path:'dashboard'},function(){
+    this.route('languages', {path:'/languages'});
+    this.route('languages.show', {path:'/languages/:language_id'});
+    this.route('languages.new', {path:'/languages/new'});
+    this.route('frameworks.new', {path:'/frameworks/:language_id/new'});
+    this.route('frameworks.show', {path:'/frameworks/:framework_id'});
+    this.route('posts.show', {path:'/posts/:post_id'});
+    this.route('posts.new', {path:'/posts/new'});  
+  });
+  this.route('languages.show', {path:'/languages/:language_id'});
+  this.route('frameworks.show', {path:'/frameworks/:framework_id'});
+  this.route('posts.show', {path:'/posts/:post_id'});  
 });
 
 export default Router;
