@@ -7,10 +7,14 @@ export default function(server) {
   });
   server.create("post",{
     title:"Some cool title about how cool ember is",
-    language_id:5
+    author:"SEDAD KOSOVAC",
+    date: "5 DECEMBER 2017",
+    language_id:5,
+    block_ids:[1,2,3,4]
   });
   server.create("post",{
     title:"Some cool title about how cool ember is",
+    author:"Sedad Kosovac",
     framework_id:1
   });
   server.create("language",{
@@ -19,5 +23,24 @@ export default function(server) {
     post_ids:[1]
   });
   server.createList('post', 4);
-
+  server.create("block", {
+    content:"Header",
+    post_id:1,
+    status:'header'
+  });
+  server.create("block", {
+    content:"<p>Block</p>",
+    post_id:1,
+    status:'block'
+  });
+  server.create("block", {
+    content:"<pre>Code</pre>",
+    post_id:1,
+    status:'code'
+  });
+  server.create("block", {
+    content:"<p>Hint</p>",
+    post_id:1,
+    status:'hint'
+  });
 }

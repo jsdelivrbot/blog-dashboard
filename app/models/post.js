@@ -4,6 +4,8 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   displayOrder: DS.attr("number"),
   edit: DS.attr("boolean"),
+  author: DS.attr('string'),
+  date: DS.attr('string'),
   framework: DS.belongsTo("framework"),
   language: DS.belongsTo("language"),
   blocks: DS.hasMany("block"),

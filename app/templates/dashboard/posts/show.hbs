@@ -40,7 +40,13 @@
         </div>
       {{else}}
         {{#unless block.header}}
-          {{tinymce-editor options=block.options value=block.content onValueChanged=(action "addText" block)}}
+          {{#if block.blockStatus}}
+            {{tinymce-editor options=blockStatus value=block.content onValueChanged=(action "addText" block)}}
+          {{else if block.code}}
+            {{tinymce-editor options=code value=block.content onValueChanged=(action "addText" block)}}
+          {{else if block.hint}}
+            {{tinymce-editor options=hint value=block.content onValueChanged=(action "addText" block)}}
+          {{/if}}
           <div class="btn-group">
             <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
             <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
