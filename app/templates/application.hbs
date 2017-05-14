@@ -1,6 +1,16 @@
+{{#unless loginRoute}}
+  {{#nav-bar}}
+   {{#if session.isAuthenticated}}
+    <img src="/assets/images/avatar.jpg"/>
+      {{#drop-down}}
+      <ul>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
+      </ul>
+      {{/drop-down}}
+    {{else}}
+      {{#link-to 'login'}}Login{{/link-to}}
+    {{/if}}
+  {{/nav-bar}}
+{{/unless}}
 {{outlet}}
-{{!--   {{#if session.isAuthenticated}}
-    <a {{action 'invalidateSession'}}>Logout</a>
-  {{else}}
-    {{#link-to 'login'}}Login{{/link-to}}
-  {{/if}} --}}
