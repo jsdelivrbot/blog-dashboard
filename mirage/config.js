@@ -133,12 +133,28 @@ export default function() {
       }
     });
     this.get('/blocks');
-  this.post('/sessions', function(db, request) {
-    if(true) {
-      return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29"};
-    } else {
-      let body = { errors: [{ password: 'Invalid' }, {email: 'Invalid or not found'}] };
-      return new Mirage.Response(401,{}, body);
-    }
-  });  
+    this.post('/sessions', function(db, request) {
+      if(true) {
+        return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29"};
+      } else {
+        let body = { errors: [{ password: 'Invalid' }, {email: 'Invalid or not found'}] };
+        return new Mirage.Response(401,{}, body);
+      }
+    });  
+    this.get('/profiles/:id', function(db,request){
+      return {"profile":[{id:1,first_name:"sedad", last_name:"kosovac", email:"sedad@kosovac.com"}]}
+    });
+    this.put('profiles/:id', function(db, request) {
+      let attrs = JSON.parse(request.requestBody).profile;
+      if ( attrs.email!=null && attrs.email!="") {
+          return {"profile": [{id:1, first_name: attrs.first_name, last_name: attrs.last_name, email: attrs.email}]};
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+              }
+            ]
+          });
+       }
+      });
 }

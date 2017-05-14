@@ -4,7 +4,7 @@
     <img src="/assets/images/avatar.jpg"/>
       {{#drop-down}}
       <ul>
-        <li><a href="#">Settings</a></li>
+        <li>{{#link-to "dashboard.profile"}}Profile{{/link-to}}</li>
         <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
       </ul>
       {{/drop-down}}

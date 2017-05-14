@@ -9,6 +9,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login', {path:'login'});  
   this.route('dashboard', {path:'dashboard'},function(){
+    this.route('profile', {path:'/profile'});
     this.route('languages', {path:'/languages'});
     this.route('languages.show', {path:'/languages/:language_id'});
     this.route('languages.new', {path:'/languages/new'});
