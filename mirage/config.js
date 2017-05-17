@@ -2,10 +2,36 @@ import Response from 'ember-cli-mirage/response';
 
 export default function() {
   this.namespace = '/api';
-    this.get('/posts/:id');
     this.post('/posts');
     this.get('/posts');
     this.get('/languages/:id');
+    this.get('posts/:id', function(schema, request) {
+       let post= schema.db.posts.find(request.params.id);
+       let blocks = schema.db.blocks.where({post_id: post.id});
+       let string = "";
+       blocks.forEach((block)=>{
+        if(block.status == "hint"){
+          string+=`<div class='hint'>block.content</div>`;
+        }else if(block.status == "block"){
+          string+="<div class='block-status'>"+block.content+"</div>";
+        }else if(block.status == "code"){
+          string+="<div class='code'>"+block.content+"</div>";
+        }else{
+          string+="<h2>"+block.content+"<h2>";
+        }
+       });
+       post["body"]= string;
+       if (post) {
+         return {"posts": post}; 
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+              }
+            ]
+          });
+       }
+      });
     this.post('languages', function(schema, request) {
        let attrs = JSON.parse(request.requestBody).language;
        if ( attrs.name!=null) {

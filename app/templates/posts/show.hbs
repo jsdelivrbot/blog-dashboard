@@ -1,7 +1,8 @@
 <div class="container public">
   <h1>{{model.title}}</h1>
   <div class="sub-header"><span>by {{model.author}}</span><span>{{model.date}}</span></div>
-  {{#each model.blocks as |block|}}
+  {{model.bodyHtmlSafe}}
+{{!--   {{#each model.blocks as |block|}}
       {{block.contentHtmlSafe}}
-  {{/each}}
+  {{/each}} --}}
 </div>

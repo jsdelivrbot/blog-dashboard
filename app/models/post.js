@@ -6,6 +6,7 @@ export default DS.Model.extend({
   edit: DS.attr("boolean"),
   author: DS.attr('string'),
   date: DS.attr('string'),
+  body: DS.attr('string'),
   framework: DS.belongsTo("framework"),
   language: DS.belongsTo("language"),
   blocks: DS.hasMany("block"),
@@ -15,5 +16,8 @@ export default DS.Model.extend({
   }),
   parentId: Ember.computed("framework", "language", function(){
     return this.get("framework").get("id") ? this.get("framework").get("id") : this.get("language").get("id");
+  }),
+  bodyHtmlSafe: Ember.computed("body",function(){
+    return Ember.String.htmlSafe(this.get("body"));
   })
 });
