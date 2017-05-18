@@ -349,9 +349,7 @@ nav {
     -moz-box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
     box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
 }
-.public{
-  display: block!important;
-}
+
 .sub-header{
   font-size: 15px!important;
   color: #c5bec1!important;
@@ -418,4 +416,33 @@ nav {
       }    
     }
   }
+}
+
+.public{
+  display: block!important;
+
+  p{
+    padding: 15px;
+    margin: 0;
+  }
+  ul,ol,p{
+    font-size: 21px!important;
+    color: #874c62!important;
+  }
+  pre{
+    font-size: 21px!important;
+    color: #874c62!important;
+    margin: 0;
+    padding: 15px;
+  }
+  div{
+    font-size: 14px;
+    color: #c98474;
+    padding: 15px;
+    margin: 0;
+    font-size: 14px;
+  }
+  h2{
+      color:#c98474;
+    }
 }

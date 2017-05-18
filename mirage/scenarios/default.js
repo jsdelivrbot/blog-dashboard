@@ -24,7 +24,7 @@ export default function(server) {
   });
   server.createList('post', 4);
   server.create("block", {
-    content:"Header",
+    content:"<h2>Header</h2>",
     post_id:1,
     status:'header'
   });
@@ -39,7 +39,7 @@ export default function(server) {
     status:'code'
   });
   server.create("block", {
-    content:"<p>Hint</p>",
+    content:"<div>Hint</div>",
     post_id:1,
     status:'hint'
   });

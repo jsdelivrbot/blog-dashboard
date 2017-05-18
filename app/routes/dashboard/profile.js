@@ -7,7 +7,7 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
   },
   actions:{
     save(model){
-      model.save().then((model)=>{
+      model.save().then(()=>{
         this.transitionTo("dashboard.languages");
       });
     }

@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   blocks:["header", "block", "code", "hint"],
   hint:{
-    forced_root_block: "p",
+    forced_root_block: "div",
     content_css:'/assets/blog-dashboard.css',
     body_class:"hint",
     menu: "false",

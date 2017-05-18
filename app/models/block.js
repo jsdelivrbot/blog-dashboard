@@ -19,15 +19,6 @@ export default DS.Model.extend({
     return this.get("status")=="header";
   }),
  contentHtmlSafe: Ember.computed("content",function(){
-    if(this.get("status")=="hint"){
-      return Ember.String.htmlSafe(`<div class="hint">${this.get("content")}</div>`);
-    }else if(this.get("status")=="block"){
-      return Ember.String.htmlSafe(`<div class="block-status">${this.get("content")}</div>`);      
-    }else if(this.get("status")=="header"){
-      return Ember.String.htmlSafe(`<h2>${this.get("content")}</h2>`);
-    }
-    else{
-      return Ember.String.htmlSafe(this.get("content"));
-    }
+    return Ember.String.htmlSafe(this.get("content"));
   })
 });
