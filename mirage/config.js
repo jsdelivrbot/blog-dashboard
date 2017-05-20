@@ -6,7 +6,13 @@ export default function() {
     this.get('/posts');
     this.get('/languages/:id');
     this.get('posts/:id', function(schema, request) {
-       let post= schema.db.posts.find(request.params.id);
+      let post="";
+      if(isNaN(request.params.id)){
+       post= schema.db.posts.where({slug:request.params.id})[0];
+      }
+      else{
+       post= schema.db.posts.find(request.params.id);
+      }
        let blocks = schema.db.blocks.where({post_id: post.id});
        let string = "";
        blocks.forEach((block)=>{
@@ -15,6 +21,44 @@ export default function() {
        post["body"]= string;
        if (post) {
          return {"posts": post}; 
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+              }
+            ]
+          });
+       }
+      });
+ this.get('languages/:id', function(schema, request) {
+      let language="";
+      if(isNaN(request.params.id)){
+       language= schema.db.languages.where({slug:request.params.id})[0];
+      }
+      else{
+       language= schema.db.languages.find(request.params.id);
+      }
+       if (language) {
+         return {"languages": language}; 
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+              }
+            ]
+          });
+       }
+      });
+ this.get('frameworks/:id', function(schema, request) {
+      let framework="";
+      if(isNaN(request.params.id)){
+       framework= schema.db.frameworks.where({slug:request.params.id})[0];
+      }
+      else{
+       framework= schema.db.frameworks.find(request.params.id);
+      }
+       if (framework) {
+         return {"frameworks": framework}; 
        } else {
          return new Response(422, {}, {
             "errors": [
@@ -125,7 +169,6 @@ export default function() {
         return new Response(401, {}, {});
       }
     }); 
-    this.get('/frameworks/:id');
     this.get('/frameworks');
     this.put("frameworks/:id");  
     this.del('/posts/:id');

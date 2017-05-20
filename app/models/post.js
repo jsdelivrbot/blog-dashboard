@@ -5,6 +5,7 @@ export default DS.Model.extend({
   displayOrder: DS.attr("number"),
   edit: DS.attr("boolean"),
   author: DS.attr('string'),
+  slug: DS.attr('string'),
   date: DS.attr('string'),
   body: DS.attr('string'),
   framework: DS.belongsTo("framework"),
