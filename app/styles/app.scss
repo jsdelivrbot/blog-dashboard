@@ -5,7 +5,25 @@
 } 
 
 body {margin:0;padding:0;font-family: 'Crimson Text', serif;}
-
+form{
+  input {
+    @include box-shadow();
+    width: 100%;
+    margin: 1% 0;
+    display: inline-block;
+    border: 1px solid #a7d2cb;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    padding: 10px;
+    font-size: 20px;
+    color:#874c62;
+    &:active,
+    &:focus {
+    outline: none;
+    @include box-shadow();
+    }  
+  }
+}
 nav {
   position: fixed;
   top:0;
@@ -97,7 +115,6 @@ nav {
     margin-left: 20%;
     display: flex;
     flex-wrap: wrap;
-    // justify-content:space-between;
     form{
       width: 100%;
     }
@@ -206,23 +223,6 @@ nav {
     font-size: 21px;
     color: #874c62;
   }  
-  input {
-    @include box-shadow();
-    width: 100%;
-    margin: 1% 0;
-    display: inline-block;
-    border: 1px solid #a7d2cb;
-    border-radius: 4px;
-    box-sizing: border-box; 
-    padding: 10px;
-    font-size: 20px;
-    color:#874c62;
-    &:active,
-    &:focus {
-    outline: none;
-    @include box-shadow();
-    }  
-  }
   .medium{
     width: 49%;
   }
@@ -295,8 +295,7 @@ nav {
         background-color:#D9BA6F;
       } 
     } 
-  }
-  
+  }  
 }
 
 .block-status{
@@ -342,10 +341,10 @@ nav {
 }
 
 .error{
-    border: none!important;
-    -webkit-box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
-    -moz-box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
-    box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
+  border: none!important;
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
+  -moz-box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
+  box-shadow: 0px 0px 1px 0px rgba(255, 0, 0, 1)!important;
 }
 
 .sub-header{
@@ -361,23 +360,6 @@ nav {
   background-color: #a7d2cb;
   min-height: 100vh;
   form{
-    input{
-      @include box-shadow();
-      width: 100%;
-      margin: 1% 0;
-      display: inline-block;
-      border: 1px solid #a7d2cb;
-      border-radius: 4px;
-      box-sizing: border-box; 
-      padding: 10px;
-      font-size: 20px;
-      color:#874c62;
-      &:active,
-      &:focus {
-      outline: none;
-      @include box-shadow();
-      }       
-    }
     button{
       border:none;
       @include box-shadow();
