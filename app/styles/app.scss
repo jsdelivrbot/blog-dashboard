@@ -3,6 +3,12 @@
   -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
   box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
 } 
+@media only screen and (max-width: 500px) {
+    .container {
+       margin-left: 0;
+       margin-right: 0; 
+    }
+}
 
 body {margin:0;padding:0;font-family: 'Crimson Text', serif;}
 form{
@@ -111,15 +117,22 @@ nav {
 }
 .container {
     margin-top: 55px;
-    margin-right: 20%;
-    margin-left: 20%;
+    margin-right: 5%;
+    margin-left: 5%;
     display: flex;
     flex-wrap: wrap;
+    @media screen and (min-width: 1200px) {
+      margin-right: 20%;
+      margin-left: 20%;
+    }
     form{
       width: 100%;
     }
   .card{
-    width: 33.3333333333333333333%;
+    width: 100%;
+    @media screen and (min-width: 600px) {
+       width: 33.3333333333333333333%;
+    }
     height: 160px;
     -webkit-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
     -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
@@ -179,8 +192,10 @@ nav {
     }
   }
   .large{
-    width: 33.3333333333333333333%;
-    height: 160px;
+    width: 100%;
+    @media screen and (min-width: 600px) {
+       width: 33.3333333333333333333%;
+    }    height: 160px;
     font-size: 40px;
   }
   .long{
