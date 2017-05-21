@@ -43,6 +43,26 @@ export default Ember.Controller.extend({
     ],
     toolbar: "false"
   },
+  header:{
+    forced_root_block: "h2",
+    content_css:'/assets/blog-dashboard.css',
+    menu: "false",
+    body_class:"header",
+    statusbar: false,
+    setup: function (ed) {
+        ed.on('init', function(args) {
+            var id = ed.id;
+            var height = 50;
+            document.getElementById(id + '_ifr').style.height = height + 'px';
+        });
+    },
+    paste_as_text: true,
+    theme: 'modern',
+    plugins: [
+      'paste'
+    ],
+    toolbar: "false"
+  },
   actions:{
     addText(block, value){
       block.set("content", value);

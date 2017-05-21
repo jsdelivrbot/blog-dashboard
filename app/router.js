@@ -10,7 +10,7 @@ Router.map(function() {
   this.route('login', {path:'login'});  
   this.route('dashboard', {path:'dashboard'},function(){
     this.route('profile', {path:'/profile'});
-    this.route('languages', {path:'/languages'});
+    this.route('languages', {path:'/'});
     this.route('languages.show', {path:'/languages/:language_id'});
     this.route('languages.new', {path:'/languages/new'});
     this.route('frameworks.new', {path:'/frameworks/:language_id/new'});

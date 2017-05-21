@@ -55,7 +55,7 @@ module.exports = function(environment) {
   }
   ENV['ember-simple-auth'] = {  
       authorizer: 'authorizer:custom',
-      routeAfterAuthentication: '/dashboard/languages'
+      routeAfterAuthentication: '/dashboard'
   };
   return ENV;
 };

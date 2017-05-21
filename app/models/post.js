@@ -2,7 +2,6 @@ import DS from 'ember-data';
 import Ember from 'ember';
 export default DS.Model.extend({
   title: DS.attr('string'),
-  displayOrder: DS.attr("number"),
   edit: DS.attr("boolean"),
   author: DS.attr('string'),
   slug: DS.attr('string'),

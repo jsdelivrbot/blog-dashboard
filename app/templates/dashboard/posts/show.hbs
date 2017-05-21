@@ -19,31 +19,27 @@
     {{/if}}
     {{#each model.blocks as |block|}}
       {{#if block.edit}}
-        {{block.contentHtmlSafe}}
-        <div class="btn-group  ">
+        <div class="content">
+          {{block.contentHtmlSafe}}
+        </div>
+        <div class="btn-group">
           <button {{action 'editInput' block}} class="primary-button btn small m-r">Edit</button>
           <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Delete</button>
         </div>
       {{else}}
-        {{#unless block.header}}
           {{#if block.blockStatus}}
             {{tinymce-editor options=blockStatus value=block.content onValueChanged=(action "addText" block)}}
           {{else if block.code}}
             {{tinymce-editor options=code value=block.content onValueChanged=(action "addText" block)}}
           {{else if block.hint}}
             {{tinymce-editor options=hint value=block.content onValueChanged=(action "addText" block)}}
+          {{else if block.header}}
+            {{tinymce-editor options=header value=block.content onValueChanged=(action "addText" block)}}    
           {{/if}}
           <div class="btn-group">
             <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
             <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
           </div>
-        {{else}}
-          {{input type="text" value=block.content placeholder="Post Header" class=(if block.errors 'error')}}
-          <div class="btn-group   ">
-            <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
-            <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
-          </div>    
-        {{/unless}}
       {{/if}}
     {{/each}}
     {{#if model.id}}
