@@ -203,7 +203,7 @@ export default function() {
       }
     });  
     this.get('/profiles/:id', function(){
-      return {"profile":[{id:1,first_name:"sedad", last_name:"kosovac", email:"sedad@kosovac.com"}]}
+      return {"profile":{id:1,first_name:"sedad", last_name:"kosovac", email:"sedad@kosovac.com"}}
     });
     this.put('profiles/:id', function(db, request) {
       let attrs = JSON.parse(request.requestBody).profile;

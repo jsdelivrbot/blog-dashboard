@@ -3,6 +3,8 @@
       {{input type="text" value=model.firstName placeholder="First Name" class=(if model.errors 'error')}}
       {{input type="text" value=model.lastName placeholder="Last Name" class=(if model.errors 'error')}}
       {{input type="text" value=model.email placeholder="Email" class=(if model.errors 'error')}}
+      {{input type="file" value=model.photo placeholder="Photo" class=(if model.errors 'error')}}
+      {{#photo-upload file=model.photo type="file" id='cover'}}{{/photo-upload}} 
       <div class="btn-group ">
         <button type="submit" class="primary-button btn small m-r">Save</button>
         {{#link-to "dashboard.languages" class="secondary-button btn small" tagName="button"}}Cancel{{/link-to}}
