@@ -53,11 +53,12 @@ nav {
     display: flex;
   }
 
-  img {
+  .thumb, img{
     border-radius: 50%;
     width: 35px;
     height: 35px;
-  }
+    background-color: #f2d388;
+    }
   a {
     color: #c98474;
     text-decoration: none;    
@@ -442,4 +443,15 @@ nav {
       padding: 15px;
       margin: 0;
     }
+}
+
+.avatar{
+  cursor: pointer;
+  background-color: #f2d388;
+  border: 3px solid #FFF;
+  border-radius: 18px;
+  box-shadow: 0 0 2px #888;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }

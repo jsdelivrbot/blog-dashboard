@@ -1,7 +1,11 @@
 {{#unless loginRoute}}
   {{#nav-bar}}
    {{#if session.isAuthenticated}}
-    <img src="/assets/images/avatar.jpg"/>
+    {{#if photo}}
+      <img src={{photo}}/>
+    {{else}}
+      <span class="thumb"></span>
+    {{/if}}
       {{#drop-down}}
       <ul>
         <li>{{#link-to "dashboard.profile"}}Profile{{/link-to}}</li>

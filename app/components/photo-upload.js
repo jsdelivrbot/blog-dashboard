@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   loading: false,
+  classNames:["hide"],
   tagName: 'input',
   attributeBindings: ['type'],
   type: 'file',

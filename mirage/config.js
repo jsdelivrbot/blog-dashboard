@@ -196,7 +196,7 @@ export default function() {
     this.get('/blocks');
     this.post('/sessions', function() {
       if(this.normalizedRequestAttrs().password) {
-        return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29"};
+        return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29", photo:""};
       } else {
         let body = { errors: [{ password: 'Invalid' }, {email: 'Invalid or not found'}] };
         return new Response(401,{}, body);
