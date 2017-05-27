@@ -8,6 +8,9 @@
     {{/if}}
       {{#drop-down}}
       <ul>
+        {{#if admin}}
+        <li>{{#link-to "dashboard.users"}}Users{{/link-to}}</li>
+        {{/if}}
         <li>{{#link-to "dashboard.profile"}}Profile{{/link-to}}</li>
         <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
       </ul>

@@ -7,20 +7,18 @@ export default Ember.Route.extend({
       this.transitionTo("dashboard");
     }
   },
-  model(){
-    return this.store.createRecord('language');
+  model(params){
+    return this.store.findRecord('user', params.user_id);
   },
   actions: {
     save(model){
       model.save().then(()=>{
-        this.transitionTo("dashboard.languages")
+        this.transitionTo("dashboard.users")
       });
     },
     willTransition() {
-      let language = this.get('controller.model');
-      if(language.get('isNew') === true){
-        this.store.unloadRecord(language);
-      }
+      let user = this.get('controller.model');
+      user.rollbackAttributes();
     }
   }
 });

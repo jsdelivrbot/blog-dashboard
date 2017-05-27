@@ -7,6 +7,9 @@ export default Ember.Controller.extend({
       return this.get("session").get("session.authenticated.photo");
     }
   }),
+  admin: Ember.computed("currentPath", function(){
+    return this.get("session").get("session.authenticated.admin");
+  }),
   loginRoute: Ember.computed("currentPath", function(){
     return this.currentPath=="login";
   })

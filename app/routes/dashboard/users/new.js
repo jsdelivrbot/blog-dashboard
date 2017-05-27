@@ -8,12 +8,12 @@ export default Ember.Route.extend({
     }
   },
   model(){
-    return this.store.createRecord('language');
+    return this.store.createRecord('user');
   },
   actions: {
     save(model){
       model.save().then(()=>{
-        this.transitionTo("dashboard.languages")
+        this.transitionTo("dashboard.users")
       });
     },
     willTransition() {

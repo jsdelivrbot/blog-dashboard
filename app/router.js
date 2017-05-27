@@ -10,6 +10,9 @@ Router.map(function() {
   this.route('login', {path:'login'});  
   this.route('dashboard', {path:'dashboard'},function(){
     this.route('profile', {path:'/profile'});
+    this.route('users');
+    this.route('users.edit',{path:'/users/:user_id'});
+    this.route('users.new',{path:'/users/new'});
     this.route('languages', {path:'/'});
     this.route('languages.show', {path:'/languages/:language_id'});
     this.route('languages.new', {path:'/languages/new'});

@@ -4,15 +4,19 @@
       {{framework.name}}
     {{/link-to}}
   {{/each}}
-  {{#link-to "dashboard.frameworks.new" model.id class="primary-button btn large"}}
-    <span>+</span>
-  {{/link-to}}
+  {{#if admin}}
+    {{#link-to "dashboard.frameworks.new" model.id class="primary-button btn large"}}
+      <span>+</span>
+    {{/link-to}}
+  {{/if}}
   {{#each model.posts as |post|}}
   {{#link-to "dashboard.posts.show"  post.id class="block"}}
     {{post.title}}
   {{/link-to}}
   {{/each}}
+  {{#if admin}}
     {{#link-to "dashboard.posts.new"  (query-params  framework_id=null language_id=model.id) class="primary-button btn long"}} 
     <span>+</span>
-  {{/link-to}}
+    {{/link-to}}
+  {{/if}}
 </div>

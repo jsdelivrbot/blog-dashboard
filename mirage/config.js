@@ -194,9 +194,26 @@ export default function() {
       }
     });
     this.get('/blocks');
+    this.get('/users');
+    this.put('/users/:id');
+    this.get('/users/:id');
+
+    this.post('users', function(schema, request) {
+       let attrs = JSON.parse(request.requestBody).user;
+       if ( attrs.email!=null) {
+         return schema.users.create(attrs); 
+       } else {
+         return new Response(422, {}, {
+            "errors": [
+              {
+              }
+            ]
+          });
+       }
+      });
     this.post('/sessions', function() {
       if(this.normalizedRequestAttrs().password) {
-        return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29", photo:""};
+        return {"authenticator":"authenticator:jwt",jwt: "asdf8q94raidflj3892.a2389y428iwhfa.af8923ur29", photo:"", admin: true};
       } else {
         let body = { errors: [{ password: 'Invalid' }, {email: 'Invalid or not found'}] };
         return new Response(401,{}, body);

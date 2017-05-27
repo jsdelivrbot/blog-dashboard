@@ -1,6 +1,7 @@
 <div class="container">
   <form {{action 'save' model on='submit'}}>
     {{input type="text" value=model.name placeholder="Language Name" class=(if model.errors 'error')}}
+    {{input type="text" value=model.displayOrder placeholder="Language Display Order" class=(if model.errors 'error')}}
     <div class="btn-group">
       <button type="submit" class="primary-button btn small m-r">Save</button>
       {{#link-to "dashboard.languages" class="secondary-button btn small" tagName="button"}}

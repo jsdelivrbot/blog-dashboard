@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  session: Ember.inject.service(),
+  admin: Ember.computed("currentPath", function(){
+    return this.get("session").get("session.authenticated.admin");
+  }),
   blocks:["header", "block", "code", "hint"],
   hint:{
     forced_root_block: "div",
@@ -98,6 +102,7 @@ export default Ember.Controller.extend({
     },
     cancelInput(model){
       model.rollbackAttributes();
+      model.set("edit", true);
     }
   }
 });

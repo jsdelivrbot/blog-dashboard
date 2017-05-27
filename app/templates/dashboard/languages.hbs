@@ -4,7 +4,9 @@
       {{language.name}}
     {{/link-to}}
   {{/each}}
-  {{#link-to "dashboard.languages.new" class="primary-button btn large"}}
-    <span>+</span>
-  {{/link-to}}
+  {{#if admin}}
+    {{#link-to "dashboard.languages.new" class="primary-button btn large"}}
+      <span>+</span>
+    {{/link-to}}
+  {{/if}}
 </div>

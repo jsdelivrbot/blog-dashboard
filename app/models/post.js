@@ -4,6 +4,8 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   edit: DS.attr("boolean"),
   author: DS.attr('string'),
+  status: DS.attr('string'),
+  displayOrder: DS.attr('number'),
   slug: DS.attr('string'),
   date: DS.attr('string'),
   body: DS.attr('string'),

@@ -1,6 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  session: Ember.inject.service(),
+  beforeModel(){
+    if(!this.get("session").get("session.authenticated.admin")){
+      this.transitionTo("dashboard");
+    }
+  },
   model(params){
     if(params.language_id){
       return this.store.findRecord("language", params.language_id).then((language)=>{
