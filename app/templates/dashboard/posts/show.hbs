@@ -10,6 +10,8 @@
       {{input type="text" value=model.title placeholder="Post Name" class=(if model.errors 'error')}}
       {{#if admin}}
         {{input type="text" value=model.dispalyOrder placeholder="Post Display Order" class=(if model.errors 'error')}}
+        {{input type="text" value=model.slug placeholder="Post Slug" class=(if model.errors 'error')}}
+        {{input type="text" value=model.status placeholder="Post Status" class=(if model.errors 'error')}}
       {{/if}}
       <div class="btn-group ">
         <button type="submit" class="primary-button btn small m-r">Save</button>
