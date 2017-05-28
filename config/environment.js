@@ -29,11 +29,11 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.host = 'http://localhost:4200';
+    ENV.host = 'http://localhost:3000';
 
-      ENV['ember-cli-mirage'] = {
-        enabled: true
-      }
+      // ENV['ember-cli-mirage'] = {
+      //   enabled: true
+      // }
 
   }
 
@@ -51,7 +51,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    // ENV.APP.HOST = 'http://localhost:3000'
   }
   ENV['ember-simple-auth'] = {  
       authorizer: 'authorizer:custom',

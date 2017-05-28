@@ -4,6 +4,6 @@ import config from '../config/environment';
 
 export default ActiveModelAdapter.extend(DataAdapterMixin, {
   namespace: 'api',
-  host: `${config.host}`,
+  // host: `${config.host}`,
   authorizer: 'authorizer:custom'
 });

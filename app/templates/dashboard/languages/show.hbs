@@ -14,9 +14,7 @@
     {{post.title}}
   {{/link-to}}
   {{/each}}
-  {{#if admin}}
-    {{#link-to "dashboard.posts.new"  (query-params  framework_id=null language_id=model.id) class="primary-button btn long"}} 
-    <span>+</span>
-    {{/link-to}}
-  {{/if}}
+  {{#link-to "dashboard.posts.new"  (query-params  framework_id=null language_id=model.id) class="primary-button btn long"}} 
+  <span>+</span>
+  {{/link-to}}
 </div>

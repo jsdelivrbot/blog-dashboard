@@ -54,7 +54,7 @@ export default Ember.Controller.extend({
     body_class:"header",
     statusbar: false,
     setup: function (ed) {
-        ed.on('init', function(args) {
+        ed.on('init', function() {
             var id = ed.id;
             var height = 50;
             document.getElementById(id + '_ifr').style.height = height + 'px';
