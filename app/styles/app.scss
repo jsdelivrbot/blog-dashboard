@@ -235,7 +235,7 @@ nav {
     color: #874c62;
   }
   pre{
-    font-size: 21px;
+    font-size: 21px!important;
     color: #874c62;
   }  
   .medium{
@@ -453,4 +453,9 @@ nav {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+}
+pre.prettyprint{
+  border: none!important;
+  background-color: #f8f8f8;
+  padding: 25px!important;
 }
