@@ -4,9 +4,19 @@
       {{framework.name}}
     {{/link-to}}
   {{/each}}
-  {{#each model.posts as |post|}}
+  {{#each posts as |post|}}
   {{#link-to "posts.show"  post.slug class="block"}}
     {{post.title}}
   {{/link-to}}
   {{/each}}
 </div>
+{{#unless navigate.first}}
+  {{#link-to "languages.show"  model.slug (query-params page=navigate.previous_page) class="block"}}
+    left
+  {{/link-to}}
+{{/unless}}
+{{#unless navigate.last}}
+  {{#link-to "languages.show"  model.slug (query-params page=navigate.next_page) class="block"}}
+    right
+  {{/link-to}}
+{{/unless}}
