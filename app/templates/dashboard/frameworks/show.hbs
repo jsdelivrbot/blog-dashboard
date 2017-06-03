@@ -1,9 +1,16 @@
 <div class="container">
- {{#each model.posts as |post|}}
+ {{#each posts as |post|}}
     {{#link-to "dashboard.posts.show" post.id class="block"}}
       {{post.title}}
     {{/link-to}}
   {{/each}}
+  <div class="pagination-buttons">
+    {{#link-to "dashboard.frameworks.show"  model.slug (query-params page=navigate.previous_page) class=(if navigate.first 'inactive') id="left-arrow"}}
+    {{/link-to}}
+
+    {{#link-to "dashboard.frameworks.show"  model.slug (query-params page=navigate.next_page)  id="right-arrow" class=(if navigate.last 'inactive')}}
+    {{/link-to}}
+  </div>
   {{#link-to "dashboard.posts.new" (query-params language_id=null framework_id=model.id) class="primary-button btn long"}} 
     <span>+</span>
   {{/link-to}}

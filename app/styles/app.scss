@@ -116,6 +116,7 @@ nav {
   display: none;
 }
 .container {
+    position: relative;
     margin-top: 55px;
     margin-right: 5%;
     margin-left: 5%;
@@ -145,6 +146,15 @@ nav {
     justify-content:center;
     font-size: 40px;
     text-decoration: none;
+    &:hover {
+      background: #fafafa;
+    }
+    // &:active {
+    //   background: #fafafa;
+    // }
+    // &:focus {
+    // background: #fafafa;
+    // } 
   }
   .block{
     width: 100%;
@@ -158,6 +168,15 @@ nav {
     padding: 15px;
     font-size: 24px;
     text-decoration: none;
+    &:hover {
+      background: #fafafa;
+    }
+    // &:active {
+    //   background: #fafafa;
+    // }
+    // &:focus {
+    // background: #fafafa;
+    // } 
   }
   .btn{
     border:none;
@@ -195,7 +214,8 @@ nav {
     width: 100%;
     @media screen and (min-width: 600px) {
        width: 33.3333333333333333333%;
-    }    height: 160px;
+    }
+    height: 160px;
     font-size: 40px;
   }
   .long{
@@ -458,4 +478,110 @@ pre.prettyprint{
   border: none!important;
   background-color: #f8f8f8;
   padding: 25px!important;
+}
+
+.pagination-buttons{
+  width: 100%;
+  display: flex;
+  justify-content:space-between;
+}
+
+#right-arrow {
+  position: fixed;
+  width: 141.42px;
+  height: 141.42px;
+  overflow: hidden;
+  box-shadow: -2px 0px 1px -2px  rgba(167,210,203,1);
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    transform: rotate(45deg); /* Prefixes... */
+    top: 21.5px;
+    right: 90.71px;
+    @include box-shadow()
+  }
+  @media only screen and (max-width: 1199px) {
+    position: relative;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 32.5%;
+    right: 8%;
+  }
+  @media screen and (min-width: 1500px) {
+    top: 32.5%;
+    right: 10%;
+  }
+  &:hover {
+    &:after {
+      background: #fafafa;
+    }
+  }
+  // &:active {
+  //   &:after {
+  //     background: #fafafa;
+  //   }
+  // }
+  // &:focus {
+  //   &:after {
+  //     background: #fafafa;
+  //   }
+  // }   
+}
+#left-arrow {
+  position: fixed;
+  width: 141.41px;
+  height: 141.41px;
+  overflow: hidden;
+  box-shadow: 2px 0px 1px -2px  rgba(167,210,203,1);
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    transform: rotate(45deg); /* Prefixes... */
+    top: 21.5px;
+    left: 90.71px;
+    @include box-shadow()
+  }
+  @media only screen and (max-width: 1199px) {
+    position: relative;
+  }
+  @media screen and (min-width: 1200px) {
+    top: 32.5%;
+    left: 8%;
+  }
+  @media screen and (min-width: 1500px) {
+    top: 32.5%;
+    left: 10%;
+  }
+  &:hover {
+    &:after {
+      background: #fafafa;
+    }
+  }
+  // &:active {
+  //   &:after {
+  //     background: #fafafa;
+  //   }
+  // }
+  // &:focus {
+  //   &:after {
+  //     background: #fafafa;
+  //   }
+  // }  
+}
+.ml-90{
+  // margin-left: 85%;
+}
+
+.inactive {
+  cursor: default;
+  box-shadow: none!important;
+  &:after {
+  display: none;
+  }
 }

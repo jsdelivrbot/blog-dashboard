@@ -9,14 +9,11 @@
     {{post.title}}
   {{/link-to}}
   {{/each}}
+  <div class="pagination-buttons">
+    {{#link-to "languages.show"  model.slug (query-params page=navigate.previous_page) class=(if navigate.first 'inactive') id="left-arrow"}}
+    {{/link-to}}
+
+    {{#link-to "languages.show"  model.slug (query-params page=navigate.next_page)  id="right-arrow" class=(if navigate.last 'inactive')}}
+    {{/link-to}}
+  </div>
 </div>
-{{#unless navigate.first}}
-  {{#link-to "languages.show"  model.slug (query-params page=navigate.previous_page) class="block"}}
-    left
-  {{/link-to}}
-{{/unless}}
-{{#unless navigate.last}}
-  {{#link-to "languages.show"  model.slug (query-params page=navigate.next_page) class="block"}}
-    right
-  {{/link-to}}
-{{/unless}}
