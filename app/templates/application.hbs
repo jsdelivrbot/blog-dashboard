@@ -2,11 +2,11 @@
   {{#nav-bar}}
    {{#if session.isAuthenticated}}
     {{#if photo}}
-      <img src={{photo}}/>
+      <img {{action "toggle" bubbles=false}} src={{photo}}/>
     {{else}}
-      <span class="thumb"></span>
+      <span class="thumb" {{action "toggle" bubbles=false}}></span>
     {{/if}}
-      {{#drop-down}}
+      {{#drop-down isOpen=isOpen}}
       <ul>
         {{#if admin}}
         <li>{{#link-to "dashboard.users"}}Users{{/link-to}}</li>

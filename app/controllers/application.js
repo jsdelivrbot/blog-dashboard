@@ -12,5 +12,10 @@ export default Ember.Controller.extend({
   }),
   loginRoute: Ember.computed("currentPath", function(){
     return this.currentPath=="login";
-  })
+  }),
+  actions:{
+    toggle(){
+      this.set("isOpen", !this.get("isOpen"));
+    }
+  }
 });
