@@ -111,8 +111,9 @@ nav {
     margin: 0;
     padding: 0;
     li{
-      padding: 7px 30px;
       a{
+        display: block;
+        padding: 7px 30px;
         color: #c98474;
         text-decoration: none;
       }
