@@ -6,15 +6,18 @@
     {{else}}
       <span class="thumb" {{action "toggle" bubbles=false}}></span>
     {{/if}}
+      <div class='arrow' {{action "toggle" bubbles=false}}></div>
       {{#drop-down isOpen=isOpen}}
-      <ul>
-        {{#if admin}}
-        <li>{{#link-to "dashboard.users"}}Users{{/link-to}}</li>
-        {{/if}}
-        <li>{{#link-to "dashboard"}}Dashboard{{/link-to}}</li>
-        <li>{{#link-to "dashboard.profile"}}Profile{{/link-to}}</li>
-        <li><a href="#" {{action 'invalidateSession'}}>Logout</a></li>
-      </ul>
+      <div class="nav-list">
+        <ul>
+          {{#if admin}}
+          <li>{{#link-to "dashboard.users"}}Users{{/link-to}}</li>
+          {{/if}}
+          <li>{{#link-to "dashboard"}}Dashboard{{/link-to}}</li>
+          <li>{{#link-to "dashboard.profile"}}Profile{{/link-to}}</li>
+          <li><a href="#" {{action 'invalidateSession'  bubbles=false}}>Logout</a></li>
+        </ul>
+      </div>
       {{/drop-down}}
     {{else}}
       {{#link-to 'login'}}Login{{/link-to}}

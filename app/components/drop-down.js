@@ -2,11 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   isOpen: false,
-  actions: {
-    toggleOpen() {
-      this.set('isOpen', !this.get('isOpen'));
-    }
-  },
   didInsertElement() {
     this._super();
     Ember.run.scheduleOnce('afterRender', this, this.afterRender);
