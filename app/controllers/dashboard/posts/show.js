@@ -18,7 +18,8 @@ export default Ember.Controller.extend({
     plugins: [
       'paste'
     ],
-    toolbar: "false"
+    toolbar: "false",
+    browser_spellcheck : true
   },
   blockStatus:{
     content_css:'/assets/blog-dashboard.css',
@@ -31,6 +32,7 @@ export default Ember.Controller.extend({
     plugins: [
       'link paste'
     ],
+    browser_spellcheck : true,
     toolbar: 'undo redo |  bold italic  | bullist numlist | link image'
   },
   code:{
@@ -48,6 +50,7 @@ export default Ember.Controller.extend({
     toolbar: "false"
   },
   header:{
+    browser_spellcheck : true,
     forced_root_block: "h2",
     content_css:'/assets/blog-dashboard.css',
     menu: "false",
