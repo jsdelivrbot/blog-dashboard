@@ -3,6 +3,14 @@
   -moz-box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
   box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
 } 
+$primary-color: #a7d2cb;
+$secondary-color: #f2d388;
+$tertiary-color: #c98474;
+$quaternary-color: #874c62;
+$secondary-darker-color: #D9BA6F;
+$white-darker-color: #fafafa;
+$white-color: #fff;
+
 @media only screen and (max-width: 500px) {
     .container {
        margin-left: 0;
@@ -30,12 +38,12 @@ form{
     width: 100%;
     margin: 1% 0;
     display: inline-block;
-    border: 1px solid #a7d2cb;
+    border: 1px solid $primary-color;
     border-radius: 4px;
     box-sizing: border-box; 
     padding: 10px;
     font-size: 20px;
-    color:#874c62;
+    color:$quaternary-color;
     &:active,
     &:focus {
     outline: none;
@@ -49,7 +57,7 @@ nav {
   right: 0;
   height: 40px;
   width: 100%;
-  background-color: #a7d2cb;
+  background-color: $primary-color;
   display: flex;
   align-items:center;
   justify-content: space-between;
@@ -57,7 +65,7 @@ nav {
   h2 {
     display: inline-block;
     margin-left: 15px;
-    color: #c98474;
+    color: $tertiary-color;
   }
 
   div {
@@ -70,11 +78,11 @@ nav {
     border-radius: 50%;
     width: 35px;
     height: 35px;
-    background-color: #f2d388;
+    background-color: $secondary-color;
     cursor: pointer;
     }
   a {
-    color: #c98474;
+    color:$tertiary-color;
     text-decoration: none;    
   }
 
@@ -86,11 +94,11 @@ nav {
     right: 0px;
     top: -10px;
     border: 5px solid transparent;
-    border-bottom-color: white;
+    border-bottom-color: $white-color;
   }
 
   .nav-list {
-   background-color: white;
+   background-color: $white-color;
    position: absolute;
    top:40px;
    right: 0px;
@@ -98,7 +106,7 @@ nav {
    ul{
     li{
       &:hover{
-        background-color: #fafafa;
+        background-color:$white-darker-color;
       }
     }
    }
@@ -112,12 +120,12 @@ nav {
     right: 0px;
     top: 20px;
     border: 5px solid transparent;
-    border-top-color: #c98474;
+    border-top-color: $tertiary-color;
     cursor: pointer;
   }
 
   .active {
-    border-top-color: white;
+    border-top-color: $white-color;
   }
 
   ul{
@@ -128,7 +136,7 @@ nav {
       a{
         display: block;
         padding: 7px 30px;
-        color: #c98474;
+        color: $tertiary-color;
         text-decoration: none;
       }
     }
@@ -162,14 +170,14 @@ nav {
     box-shadow: 0px 0px 1px 0px rgba(167,210,203,1);
     display: inline-block;
     background-color: white;
-    color: #c98474;
+    color: $tertiary-color;
     display: flex;
     align-items:center;
     justify-content:center;
     font-size: 40px;
     text-decoration: none;
     &:hover {
-      background: #fafafa;
+      background:$white-darker-color;
     }
     // &:active {
     //   background: #fafafa;
@@ -183,15 +191,15 @@ nav {
     height: 25px;
     @include box-shadow();
     display: inline-block;
-    background-color: white;
-    color: #c98474;
+    background-color: $white-color;
+    color:$tertiary-color;
     display: flex;
     align-items:center;
     padding: 15px;
     font-size: 24px;
     text-decoration: none;
     &:hover {
-      background: #fafafa;
+      background: $white-darker-color;
     }
     // &:active {
     //   background: #fafafa;
@@ -204,7 +212,7 @@ nav {
     border:none;
     @include box-shadow();
     display: inline-block;
-    color: #c98474;
+    color: $tertiary-color;
     display: flex;
     align-items:center;
     text-decoration: none;
@@ -217,19 +225,19 @@ nav {
     }
   }
   .primary-button{
-    background-color: #f2d388;
-    color: white;
+    background-color: $secondary-color;
+    color: $white-color;
     &:hover {
-      background-color:#D9BA6F;
+      background-color: $secondary-darker-color;
     }
     &:active {
        fill:#1a82b8;
-       background-color:#D9BA6F;
+       background-color:$secondary-darker-color;
     }
     &:focus {
       outline: none;
       fill:#1a82b8;
-      background-color:#D9BA6F;
+      background-color:$secondary-darker-color;
     }
   }
   .large{
@@ -254,7 +262,7 @@ nav {
     font-size: 20px;
   }
   .secondary-button{
-    background-color: #874c62;
+    background-color:$quaternary-color;
     color: white;
     &:hover {
       background-color:#6E3349;
@@ -274,11 +282,11 @@ nav {
   }
   p{
     font-size: 21px;
-    color: #874c62;
+    color: $quaternary-color;
   }
   pre{
     font-size: 21px!important;
-    color: #874c62;
+    color: $quaternary-color;
   }  
   .medium{
     width: 49%;
@@ -315,11 +323,11 @@ nav {
   margin-bottom:1%!important;
 }
 .mce-container{
-  border: 1px solid #a7d2cb;
+  border: 1px solid $primary-color;
   border-radius: 4px;
   @include box-shadow();
     .mce-toolbar-grp{
-      background-color: #a7d2cb;
+      background-color:$primary-color;
     }
     .mce-menubar{
       border: none;
@@ -328,28 +336,28 @@ nav {
     border:none;
     @include box-shadow();
     display: inline-block;
-    background-color: #f2d388;
+    background-color: $secondary-color;
     button{
       i{
-        color: white!important;
+        color: $white-color!important;
       }
     }
     &:hover {
-      background-color:#D9BA6F;
+      background-color:$secondary-darker-color;
     }
     &:active {
       fill:#1a82b8;
-      background-color:#D9BA6F;
+      background-color:$secondary-darker-color;
     } 
     &.mce-active {
       fill:#1a82b8;
-      background-color:#D9BA6F;
+      background-color:$secondary-darker-color;
       &:hover {
-        background-color:#D9BA6F;
+        background-color:$secondary-darker-color;
       }
       &:active {
         fill:#1a82b8;
-        background-color:#D9BA6F;
+        background-color:$secondary-darker-color;
       } 
     } 
   }  
@@ -362,42 +370,42 @@ nav {
   }
   ul,ol,p{
     font-size: 21px!important;
-    color: #874c62!important;
+    color: $quaternary-color!important;
   }
 }
 .code{
   pre{
     font-size: 16px!important;
-    color: #874c62!important;
+    color: $quaternary-color!important;
     margin: 0;
     padding: 15px;
   }
 }
 .hint{
   font-size: 14px;
-  color: #c98474;
+  color: $tertiary-color;
   padding: 15px;
   div{
     margin: 0;
     font-size: 14px;
-    color: #c98474;
+    color: $tertiary-color;
   }
 }
 .content{
   div{
     margin: 0;
     font-size: 14px;
-    color: #c98474;
+    color: $tertiary-color;
   }
   ul,ol,p,li{
     font-size: 21px!important;
-    color: #874c62!important;
+    color: $quaternary-color!important;
   } 
 }
 .header{
   padding-left: 15px;
   h2{
-    color:#c98474;
+    color:$tertiary-color;
   }
 }
 
@@ -418,36 +426,36 @@ nav {
   display: flex;
   justify-content:center;
   align-items:center;
-  background-color: #a7d2cb;
+  background-color: $primary-color;
   min-height: 100vh;
   form{
     button{
       border:none;
       @include box-shadow();
       display: inline-block;
-      color: #c98474;
+      color: $tertiary-color;
       display: flex;
       align-items:center;
       text-decoration: none;
       cursor: pointer;
       justify-content:center;  
-      background-color: #f2d388;
-      color: white;
+      background-color: $secondary-color;
+      color: $white-color;
       width: 100%;
       height: 40px;
       font-size: 21px;
       margin-top: 1%;
       &:hover {
-        background-color:#D9BA6F;
+        background-color:$secondary-darker-color;
       }
       &:active {
          fill:#1a82b8;
-         background-color:#D9BA6F;
+         background-color:$secondary-darker-color;
       }
       &:focus {
         outline: none;
         fill:#1a82b8;
-        background-color:#D9BA6F;
+        background-color:$secondary-darker-color;
       }    
     }
   }
@@ -464,23 +472,23 @@ nav {
   }
   ul,ol,p{
     font-size: 21px!important;
-    color: #874c62!important;
+    color:$quaternary-color!important;
   }
   pre{
     font-size: 16px!important;
-    color: #874c62!important;
+    color: $quaternary-color!important;
     margin: 0;
     padding: 15px;
   }
   div{
     font-size: 14px;
-    color: #c98474;
+    color: $tertiary-color;
     padding: 15px;
     margin: 0;
     font-size: 14px;
   }
   h2{
-      color:#c98474;
+      color:$tertiary-color;
       padding: 15px;
       margin: 0;
     }
@@ -488,7 +496,7 @@ nav {
 
 .avatar{
   cursor: pointer;
-  background-color: #f2d388;
+  background-color: $secondary-color;
   border: 3px solid #FFF;
   border-radius: 18px;
   box-shadow: 0 0 2px #888;
@@ -538,7 +546,7 @@ pre.prettyprint{
   }
   &:hover {
     &:after {
-      background: #fafafa;
+      background: $white-darker-color;
     }
   }
   // &:active {
@@ -582,7 +590,7 @@ pre.prettyprint{
   }
   &:hover {
     &:after {
-      background: #fafafa;
+      background: $white-darker-color;
     }
   }
   // &:active {
