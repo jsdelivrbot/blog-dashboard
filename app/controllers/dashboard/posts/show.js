@@ -70,6 +70,14 @@ export default Ember.Controller.extend({
     ],
     toolbar: "false"
   },
+  arry: [],
+  transition: null,
+  sortProperties: ['displayOrder:asc'],
+  sortedBlocks: Ember.computed.sort('model.blocks', 'sortProperties'),
+  sortableObjectList:  Ember.computed('model.blocks', function(){
+    console.log(this.get('sortedBlocks').toArray());
+    this.set("arry",  this.get('sortedBlocks').toArray());
+  }),
   actions:{
     addText(block, value){
       block.set("content", value);
@@ -106,6 +114,14 @@ export default Ember.Controller.extend({
     cancelInput(model){
       model.rollbackAttributes();
       model.set("edit", true);
+    },
+    sortEndAction: function(content) {
+      // this.get('arry').forEach(function(block, index){
+      //   console.log(index, block)
+      //   block.set("displayOrder", index);
+      //   block.save();
+      // });
+
     }
   }
 });

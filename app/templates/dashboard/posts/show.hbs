@@ -1,4 +1,13 @@
 <div class="container">
+{{sortableObjectList}}
+{{#sortable-objects sortableObjectList=arry sortEndAction='sortEndAction' sortingScope='sortingGroup' }}
+    {{#each arry as |item|}}
+      {{#draggable-object content=item  overrideClass='sortObject' isSortable=true sortingScope='sortingGroup'}}
+        {{item.contentHtmlSafe}}
+      {{/draggable-object}}
+    {{/each}}
+  {{/sortable-objects}}
+
   <form {{action 'save' model on='submit'}}>
     {{#if model.edit}}
       <h1>{{model.title}}</h1>
