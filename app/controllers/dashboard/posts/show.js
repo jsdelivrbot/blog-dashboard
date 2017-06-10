@@ -75,7 +75,6 @@ export default Ember.Controller.extend({
   sortProperties: ['displayOrder:desc'],
   sortedBlocks: Ember.computed.sort('model.blocks', 'sortProperties'),
   sortableObjectList:  Ember.computed('model.blocks', function(){
-    console.log(this.get('sortedBlocks').toArray());
     this.set("arry",  this.get('sortedBlocks').toArray());
   }),
   actions:{
@@ -116,8 +115,9 @@ export default Ember.Controller.extend({
       model.set("edit", true);
     },
     sortEndAction: function(content) {
-      this.get('arry').forEach(function(block, index){
-        block.set("displayOrder", index);
+      let blocks = this.get('arry');
+      blocks.forEach(function(block, index){
+        block.set("displayOrder", blocks.length - index);
         block.save();
       });
 
