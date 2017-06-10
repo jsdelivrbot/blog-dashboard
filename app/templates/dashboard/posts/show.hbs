@@ -1,13 +1,5 @@
 <div class="container">
 {{sortableObjectList}}
-{{#sortable-objects sortableObjectList=arry sortEndAction='sortEndAction' sortingScope='sortingGroup' }}
-    {{#each arry as |item|}}
-      {{#draggable-object content=item  overrideClass='sortObject' isSortable=true sortingScope='sortingGroup'}}
-        {{item.contentHtmlSafe}}
-      {{/draggable-object}}
-    {{/each}}
-  {{/sortable-objects}}
-
   <form {{action 'save' model on='submit'}}>
     {{#if model.edit}}
       <h1>{{model.title}}</h1>
@@ -31,37 +23,41 @@
         {{/if}}
       </div>
     {{/if}}
-    {{#each model.blocks as |block|}}
-      {{#if block.edit}}
-        <div class="content">
-          {{block.contentHtmlSafe}}
-        </div>
-        <div class="btn-group">
-          <button {{action 'editInput' block}} class="primary-button btn small m-r">Edit</button>
-          <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Delete</button>
-        </div>
-      {{else}}
-          {{#if block.blockStatus}}
-            {{tinymce-editor options=blockStatus value=block.content onValueChanged=(action "addText" block)}}
-          {{else if block.code}}
-            {{tinymce-editor options=code value=block.content onValueChanged=(action "addText" block)}}
-          {{else if block.hint}}
-            {{tinymce-editor options=hint value=block.content onValueChanged=(action "addText" block)}}
-          {{else if block.header}}
-            {{tinymce-editor options=header value=block.content onValueChanged=(action "addText" block)}}  
+    {{#sortable-objects sortableObjectList=arry sortEndAction='sortEndAction' sortingScope='sortingGroup' }}
+      {{#each arry as |block|}}
+        {{#draggable-object content=block  overrideClass='sortObject' isSortable=true sortingScope='sortingGroup'}}
+          {{#if block.edit}}
+            <div class="content">
+              {{block.contentHtmlSafe}}
+            </div>
+            <div class="btn-group">
+              <button {{action 'editInput' block}} class="primary-button btn small m-r">Edit</button>
+              <button {{action 'destroyBlock' block}} class="secondary-button btn small" tagName="button">Delete</button>
+            </div>
+          {{else}}
+              {{#if block.blockStatus}}
+                {{tinymce-editor options=blockStatus value=block.content onValueChanged=(action "addText" block)}}
+              {{else if block.code}}
+                {{tinymce-editor options=code value=block.content onValueChanged=(action "addText" block)}}
+              {{else if block.hint}}
+                {{tinymce-editor options=hint value=block.content onValueChanged=(action "addText" block)}}
+              {{else if block.header}}
+                {{tinymce-editor options=header value=block.content onValueChanged=(action "addText" block)}}  
+              {{/if}}
+              <div class="btn-group">
+                <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
+                <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
+              </div>
           {{/if}}
-          <div class="btn-group">
-            <button {{action 'saveBlock' block}} class="primary-button btn small m-r">Save</button>
-            <button {{action 'cancelInput' block}} class="secondary-button btn small" tagName="button">Cancel</button>
-          </div>
-      {{/if}}
-    {{/each}}
-    {{#if model.id}}
-    <div class="btn-large-group">
-      {{#each blocks as |block|}}
-        <button class="primary-button btn small mb-10" {{action "addBlock" block model}}>{{block}}</button>
+        {{/draggable-object}}
       {{/each}}
-    </div>
+    {{/sortable-objects}}
+    {{#if model.id}}
+      <div class="btn-large-group">
+        {{#each blocks as |block|}}
+          <button class="primary-button btn small mb-10" {{action "addBlock" block model}}>{{block}}</button>
+        {{/each}}
+      </div>
     {{/if}}
   </form>
 </div>

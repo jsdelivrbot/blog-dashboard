@@ -72,7 +72,7 @@ export default Ember.Controller.extend({
   },
   arry: [],
   transition: null,
-  sortProperties: ['displayOrder:asc'],
+  sortProperties: ['displayOrder:desc'],
   sortedBlocks: Ember.computed.sort('model.blocks', 'sortProperties'),
   sortableObjectList:  Ember.computed('model.blocks', function(){
     console.log(this.get('sortedBlocks').toArray());
