@@ -116,11 +116,10 @@ export default Ember.Controller.extend({
       model.set("edit", true);
     },
     sortEndAction: function(content) {
-      // this.get('arry').forEach(function(block, index){
-      //   console.log(index, block)
-      //   block.set("displayOrder", index);
-      //   block.save();
-      // });
+      this.get('arry').forEach(function(block, index){
+        block.set("displayOrder", index);
+        block.save();
+      });
 
     }
   }
