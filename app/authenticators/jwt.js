@@ -1,6 +1,6 @@
 import Ember from 'ember';  
 import Base from 'ember-simple-auth/authenticators/base';  
-import config from '../config/environment';
+// import config from '../config/environment';
 const { RSVP: { Promise }, $: { ajax }, run } = Ember;
 export default Base.extend({  
   tokenEndpoint: `/api/sessions`,

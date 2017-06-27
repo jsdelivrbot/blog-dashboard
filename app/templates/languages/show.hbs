@@ -1,8 +1,14 @@
 <div class="container">
   {{#each model.frameworks as |framework|}}
-    {{#link-to "frameworks.show" framework.slug class="card"}}
-      {{framework.name}}
-    {{/link-to}}
+    {{#if framework.active}}
+      {{#link-to "frameworks.show" framework.slug class="card"}}
+        {{framework.name}}
+      {{/link-to}}
+    {{else}}
+      <a class="card card-inactive">
+        {{framework.name}}
+      </a>
+    {{/if}}
   {{/each}}
   {{#each posts as |post|}}
   {{#link-to "posts.show"  post.slug class="block"}}

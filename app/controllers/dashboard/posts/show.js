@@ -114,7 +114,7 @@ export default Ember.Controller.extend({
       model.rollbackAttributes();
       model.set("edit", true);
     },
-    sortEndAction: function(content) {
+    sortEndAction: function() {
       let blocks = this.get('arry');
       blocks.forEach(function(block, index){
         block.set("displayOrder", blocks.length - index);

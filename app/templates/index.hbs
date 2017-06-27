@@ -1,7 +1,13 @@
 <div class="container">
   {{#each model as |language|}}
-    {{#link-to "languages.show" language.slug class="card"}}
-      {{language.name}}
-    {{/link-to}}
+    {{#if language.active}}
+      {{#link-to "languages.show" language.slug class="card"}}
+        {{language.name}}
+      {{/link-to}}
+    {{else}}
+      <a class="card card-inactive">
+        {{language.name}}
+      </a>
+    {{/if}}
   {{/each}}
 </div>
